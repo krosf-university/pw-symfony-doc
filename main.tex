@@ -1,0 +1,51 @@
+\documentclass[a4paper]{article}
+\usepackage[paper=A4,pagesize]{typearea}
+\usepackage[right=2.5cm,left=3cm,top=2.5cm,bottom=2.5cm,headsep=0.75cm,footskip=1cm]{geometry}%%Bordes
+\usepackage[utf8]{inputenc}%%Acentos
+\usepackage[spanish]{babel}%%
+\usepackage{graphicx}%% tablas e imagenes
+\usepackage{hyperref}%% urls
+\usepackage{minted,xcolor}
+\usemintedstyle{monokai}
+\definecolor{bg}{HTML}{282828} % from
+
+
+
+\begin{document}
+
+%
+% Portada
+%
+
+\input{src/cover}
+\newpage
+
+%
+% Indice
+%
+
+\tableofcontents
+\newpage
+
+%
+% Caracteristicas
+%
+\input{src/characteristics}
+
+%
+% Pre-requisitos
+%
+\input{src/requirements}
+
+%
+% Crear un proyecto
+%
+
+\input{src/create}
+
+%
+% Patron MVC
+%
+\input{src/mvc}
+
+\end{document}
