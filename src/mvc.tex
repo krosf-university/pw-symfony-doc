@@ -2,19 +2,19 @@
 Symfony está basado en un patrón clásico del diseño web conocido como arquitectura MVC, que está formado por tres niveles:
 \begin{itemize}
     \item El Modelo representa la información con la que trabaja la aplicación, es decir, su lógica de negocio.
-    \begin{itemize}
-        \item Se encarga de la abstracción de la lógica relacionada con los datos, haciendo que la vista y las acciones sean independientes de, por ejemplo, el tipo de gestor de bases de datos utilizado por la aplicación.
-    \end{itemize}
+          \begin{itemize}
+              \item Se encarga de la abstracción de la lógica relacionada con los datos, haciendo que la vista y las acciones sean independientes de, por ejemplo, el tipo de gestor de bases de datos utilizado por la aplicación.
+          \end{itemize}
     \item La Vista transforma el modelo en una página web que permite al usuario interactuar con ella.
     \item El Controlador se encarga de procesar las interacciones del usuario y realiza los cambios apropiados en el modelo o en la vista.
-    \begin{itemize}
-        \item También se encarga de aislar al modelo y a la vista de los detalles del protocolo utilizado para las peticiones (HTTP, consola de comandos, email, etc.).
-    \end{itemize}
+          \begin{itemize}
+              \item También se encarga de aislar al modelo y a la vista de los detalles del protocolo utilizado para las peticiones (HTTP, consola de comandos, email, etc.).
+          \end{itemize}
 \end{itemize}
 \subsection{Separación en capas más allá del MVC}
-El principio más importante de la arquitectura MVC es la separación del código del programa en tres capas, dependiendo de su naturaleza. La lógica relacionada con los datos se incluye en el modelo, el código de la presentación en la vista y la lógica de la aplicación en el controlador. 
+El principio más importante de la arquitectura MVC es la separación del código del programa en tres capas, dependiendo de su naturaleza. La lógica relacionada con los datos se incluye en el modelo, el código de la presentación en la vista y la lógica de la aplicación en el controlador.
 
-La programación se puede simplificar si se utilizan otros patrones de diseño. De esta forma, las capas del modelo, la vista y el controlador se pueden subdividir en más capas. 
+La programación se puede simplificar si se utilizan otros patrones de diseño. De esta forma, las capas del modelo, la vista y el controlador se pueden subdividir en más capas.
 
 \subsection{Orientación a objetos}
 La orientación a objetos permite a los desarrolladores trabajar con objetos de la vista, objetos del controlador y clases del modelo, transformando las funciones de los ejemplos anteriores en métodos. \textbf{Se trata de un requisito obligatorio para las arquitecturas de tipo MVC}.
@@ -23,21 +23,21 @@ La orientación a objetos permite a los desarrolladores trabajar con objetos de 
 Piensa por un momento cuántos componentes se necesitan para realizar una página sencilla que muestre un listado de las entradas o artículos de un blog, son necesarios los siguientes componentes:
 \begin{itemize}
     \item La capa del Modelo
-    \begin{itemize}
-        \item Abstracción de la base de datos
-        \item Acceso a los datos
-    \end{itemize}
+          \begin{itemize}
+              \item Abstracción de la base de datos
+              \item Acceso a los datos
+          \end{itemize}
     \item La capa de la Vista
-    \begin{itemize}
-        \item Vista
-        \item Plantilla
-        \item Layout
-    \end{itemize}
+          \begin{itemize}
+              \item Vista
+              \item Plantilla
+              \item Layout
+          \end{itemize}
     \item La capa del Controlador
-    \begin{itemize}
-        \item Controlador frontal
-        \item Acción
-    \end{itemize}
+          \begin{itemize}
+              \item Controlador frontal
+              \item Acción
+          \end{itemize}
 \end{itemize}
 
 En total son siete scripts, lo que parecen muchos archivos para abrir y modificar cada vez que se crea una página. Afortunadamente, Symfony simplifica este proceso.\\
@@ -49,6 +49,6 @@ La otra buena noticia es que las clases de la capa del modelo también se genera
 
 El ORM se encarga de crear el esqueleto o estructura básica de las clases y genera automáticamente todo el código necesario. Cuando el ORM encuentra restricciones de claves foráneas (o externas) o cuando encuentra datos de tipo fecha, crea métodos especiales para acceder y modificar esos datos, por lo que la manipulación de datos se convierte en un juego de niños.\\
 
-La abstracción de la base de datos es completamente transparente para el programador, ya que se realiza de forma nativa mediante PDO PHP Data Objects). Así, si se cambia el sistema gestor de bases de datos en cualquier momento, no se debe reescribir ni una línea de código, ya que tan sólo es necesario modificar un parámetro en un archivo de configuración. 
+La abstracción de la base de datos es completamente transparente para el programador, ya que se realiza de forma nativa mediante PDO PHP Data Objects). Así, si se cambia el sistema gestor de bases de datos en cualquier momento, no se debe reescribir ni una línea de código, ya que tan sólo es necesario modificar un parámetro en un archivo de configuración.
 Por último, la lógica de la vista se puede transformar en un archivo de configuración sencillo, sin necesidad de programarla.\\
-Por si fuera poco, crear la aplicación con Symfony permite crear páginas XHTML válidas, depurar fácilmente las aplicaciones, crear una configuración sencilla, abstracción de la base de datos utilizada, enrutamiento con URL limpias, varios entornos de desarrollo y muchas otras utilidades para el desarrollo de aplicaciones. 
+Por si fuera poco, crear la aplicación con Symfony permite crear páginas XHTML válidas, depurar fácilmente las aplicaciones, crear una configuración sencilla, abstracción de la base de datos utilizada, enrutamiento con URL limpias, varios entornos de desarrollo y muchas otras utilidades para el desarrollo de aplicaciones.

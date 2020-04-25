@@ -1,0 +1,19 @@
+{
+  "name": "LaTeX",
+  "dockerFile": "Dockerfile",
+  "extensions": [
+    "james-yu.latex-workshop"
+  ],
+  "settings": {
+    "editor.wordWrap": "on",
+    "terminal.integrated.shell.linux": "/bin/zsh",
+    "latex-workshop.latex.outDir": "../out",
+    "latex-workshop.synctex.afterBuild.enabled": true,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.hover.citation.enabled": true,
+    "files.associations": {
+      ".latexmkrc": "perl"
+    }
+  },
+  "remoteUser": "vscode"
+}
