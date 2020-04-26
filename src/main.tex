@@ -6,8 +6,6 @@
 \usepackage{graphicx}%% tablas e imagenes
 \usepackage{hyperref}%% urls
 
-
-
 \begin{document}
 
 %
@@ -15,13 +13,14 @@
 %
 
 \input{cover}
-\newpage
+\clearpage
+\setcounter{page}{1}
 
 %
 % Indice
 %
-
 \tableofcontents
+\listoffigures
 \newpage
 
 %
@@ -44,5 +43,35 @@
 % Patron MVC
 %
 \input{mvc}
+\clearpage
+
+%
+% Primera Pagina
+%
+\input{first_page}
+\clearpage
+
+%
+% Routes
+%
+\input{routes}
+\clearpage
+
+%
+% Controller
+%
+\input{controller}
+\clearpage
+
+%
+% Controller
+%
+\input{views}
+\clearpage
+
+%
+% Tutorial
+%
+\input{tutorial}
 
 \end{document}

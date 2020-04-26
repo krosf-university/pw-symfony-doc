@@ -1,9 +1,7 @@
 {
   "name": "LaTeX",
   "dockerFile": "Dockerfile",
-  "extensions": [
-    "james-yu.latex-workshop"
-  ],
+  "extensions": ["james-yu.latex-workshop"],
   "settings": {
     "editor.wordWrap": "on",
     "terminal.integrated.shell.linux": "/bin/zsh",

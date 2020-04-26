@@ -18,7 +18,7 @@ La programación se puede simplificar si se utilizan otros patrones de diseño. 
 
 \subsection{Orientación a objetos}
 La orientación a objetos permite a los desarrolladores trabajar con objetos de la vista, objetos del controlador y clases del modelo, transformando las funciones de los ejemplos anteriores en métodos. \textbf{Se trata de un requisito obligatorio para las arquitecturas de tipo MVC}.
-
+\clearpage
 \subsection{La implementación del MVC que realiza Symfony}
 Piensa por un momento cuántos componentes se necesitan para realizar una página sencilla que muestre un listado de las entradas o artículos de un blog, son necesarios los siguientes componentes:
 \begin{itemize}
@@ -40,15 +40,17 @@ Piensa por un momento cuántos componentes se necesitan para realizar una págin
           \end{itemize}
 \end{itemize}
 
-En total son siete scripts, lo que parecen muchos archivos para abrir y modificar cada vez que se crea una página. Afortunadamente, Symfony simplifica este proceso.\\
-Symfony toma lo mejor de la arquitectura MVC y la implementa de forma que el desarrollo de aplicaciones sea rápido y sencillo.\\
-
-En primer lugar, el controlador frontal y el layout son comunes para todas las acciones de la aplicación. Se pueden tener varios controladores y varios layouts, pero solamente es obligatorio tener uno de cada. El controlador frontal es un componente que sólo tiene código relativo al MVC, por lo que no es necesario crear uno, ya que Symfony lo genera de forma automática.\\
-
-La otra buena noticia es que las clases de la capa del modelo también se generan automáticamente, en función de la estructura de datos de la aplicación.\\
-
-El ORM se encarga de crear el esqueleto o estructura básica de las clases y genera automáticamente todo el código necesario. Cuando el ORM encuentra restricciones de claves foráneas (o externas) o cuando encuentra datos de tipo fecha, crea métodos especiales para acceder y modificar esos datos, por lo que la manipulación de datos se convierte en un juego de niños.\\
-
-La abstracción de la base de datos es completamente transparente para el programador, ya que se realiza de forma nativa mediante PDO PHP Data Objects). Así, si se cambia el sistema gestor de bases de datos en cualquier momento, no se debe reescribir ni una línea de código, ya que tan sólo es necesario modificar un parámetro en un archivo de configuración.
-Por último, la lógica de la vista se puede transformar en un archivo de configuración sencillo, sin necesidad de programarla.\\
+En total son siete scripts, lo que parecen muchos archivos para abrir y modificar cada vez que se crea una página. Afortunadamente, Symfony simplifica este proceso.
+\medskip\\
+Symfony toma lo mejor de la arquitectura MVC y la implementa de forma que el desarrollo de aplicaciones sea rápido y sencillo.
+\medskip\\
+En primer lugar, el controlador frontal y el layout son comunes para todas las acciones de la aplicación. Se pueden tener varios controladores y varios layouts, pero solamente es obligatorio tener uno de cada. El controlador frontal es un componente que sólo tiene código relativo al MVC, por lo que no es necesario crear uno, ya que Symfony lo genera de forma automática.
+\medskip\\
+La otra buena noticia es que las clases de la capa del modelo también se generan automáticamente, en función de la estructura de datos de la aplicación.
+\medskip\\
+El ORM se encarga de crear el esqueleto o estructura básica de las clases y genera automáticamente todo el código necesario. Cuando el ORM encuentra restricciones de claves foráneas (o externas) o cuando encuentra datos de tipo fecha, crea métodos especiales para acceder y modificar esos datos, por lo que la manipulación de datos se convierte en un juego de niños.
+\medskip\\
+La abstracción de la base de datos es completamente transparente para el programador, ya que se realiza de forma nativa mediante PDO PHP Data Objects). Así, si se cambia el sistema gestor de bases de datos en cualquier momento, no se debe reescribir ni una línea de código, ya que tan sólo es necesario modificar un parámetro en un archivo de configuración.\\
+Por último, la lógica de la vista se puede transformar en un archivo de configuración sencillo, sin necesidad de programarla.
+\medskip\\
 Por si fuera poco, crear la aplicación con Symfony permite crear páginas XHTML válidas, depurar fácilmente las aplicaciones, crear una configuración sencilla, abstracción de la base de datos utilizada, enrutamiento con URL limpias, varios entornos de desarrollo y muchas otras utilidades para el desarrollo de aplicaciones.
