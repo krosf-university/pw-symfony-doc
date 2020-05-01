@@ -249,3 +249,167 @@ Para probar que funciona añadiremos los datos de un artículo de ejemplo y vere
   \label{fig:article_render}
 \end{figure}
 
+\clearpage
+\subsection{Autenticación y Autorización}
+
+symfony viene con un poderoso sistema de securidad.
+
+Los unicos elementos necesarios para añadirlos a nuestra aplicación son los siguientes:
+
+\subsubsection{Crear la clase \texttt{User}}
+Para ello utilizamos el siguente comando:
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]{../assets/make_user.png}
+  \caption{Comando para crear la entidad \textit{User}}
+  \label{fig:make_user}
+\end{figure}
+
+nos creara los siguietes ficheros:
+
+\begin{itemize}
+  \item \texttt{\textbf{src/Entity/User.php}}
+  \item \texttt{\textbf{src/Repository/UserRepository.php}}
+  \item \texttt{\textbf{config/packages/security.yaml}}
+\end{itemize}
+
+Lo mas importante a tener en cuenta es que la entididad usuario debe implementar la interfaz \textbf{\textbf{UserInterface}}, también debemos de asegurarnos
+de realizar\footnote{Ver Figura \ref{fig:make_migration}} y aplicar\footnote{Ver Figura \ref{fig:apply_migration}} la migración para la entidad \textbf{\textbf{User}}.
+
+\clearpage
+\subsubsection{Encriptando contraseñas}
+Si nuestra aplicación requiere que los usuarios tenga contraseñas podemos cambiar el algoritmo utilizado en el fichero \textbf{\texttt{config/packages/security.yaml}} el comando Figura \ref{fig:make_user} precofigura con los siguientes parametros
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]{../assets/security_yml.png}
+  \caption{Fichero \texttt{\textbf{security.yml}} de configuración}
+  \label{fig:security_yml}
+\end{figure}
+
+\subsection{Creando Formulario de autenticación}
+
+La creación de un formulario de inicio de sesión se puede realizar con el siguiente comando:
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]{../assets/make_auth.png}
+  \caption{Comando para generar un formulario de inicio sesión}
+  \label{fig:make_auth}
+\end{figure}
+
+\clearpage
+\subsection*{Esto nos genera los siguientes ficheros:}
+\subsubsection{La ruta \textbf{\texttt{/login}} y el controlador}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.9\textwidth]{../assets/security_controller.png}
+  \caption{\textit{SecurityController}}
+  \label{fig:security_controller}
+\end{figure}
+
+\subsubsection{Edita el fichero \textbf{\texttt{config/packages/security.yaml}}}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\textwidth]{../assets/access_control.png}
+  \caption{\textit{IS\_AUTHENTICATED\_ANONYMOUSLY}}
+  \label{fig:access_control}
+\end{figure}
+Permitiendo que la ruta \textit{/login} sea publica para cualquier usuario.
+
+\clearpage
+\subsubsection{Plantilla del login}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.9\textwidth]{../assets/login_template.png}
+  \caption{Plantilla para la ruta \textit{/login}}
+  \label{fig:login_template}
+\end{figure}
+\clearpage
+
+\subsubsection{El autenticador que procesa el envío del formulario}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.6\textwidth]{../assets/login_form_authenticator.png}
+  \caption{\textit{LoginFormAuthenticator}}
+  \label{fig:login_form_authenticator}
+\end{figure}
+
+\clearpage
+\subsubsection{Actualiza \textbf{\texttt{config/packages/security.yaml}} para activar el autenticador}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.9\textwidth]{../assets/authenticator_yml.png}
+  \caption{\textit{Authenticators Guards}}
+  \label{fig:authenticator_yml}
+\end{figure}
+Añadimos el \textit{LoginFormAuthenticator} como un \textit{Guard} de nuestra aplicación
+
+\subsubsection{Finalmente debemos establecer la ruta por defecto}
+Definimos la ruta de redireccion en caso de autenticación exitosa.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.9\textwidth]{../assets/patch_authenticator.png}
+  \caption{\textit{LoginFormAuthenticator::onAuthenticationSucess}}
+  \label{fig:patch_authenticator}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.9\textwidth]{../assets/login_page.png}
+  \caption{Pagina en ruta \textit{/login}}
+  \label{fig:login_page}
+\end{figure}
+
+\clearpage
+\subsection{Creando el formulario de registro}
+
+Para crear el formulario de registro utilizamos el siguiente comando:
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.9\textwidth]{../assets/make_registration.png}
+  \caption{Comando para generar un formulario de registro}
+  \label{fig:make_registration}
+\end{figure}
+
+\subsection{Protegiendo Rutas}
+La forma mas basica de proteger una parte de nuestra aplicación es utilizar un patron de url en el fichero \textbf{\texttt{config/packages/security.yaml}}. Por ejemplo, para proteger la ruta \textbf{\texttt{/admin}} con el rol \textbf{\texttt{ROLE\_ADMIN}} podemos:
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.9\textwidth]{../assets/role_admin_route.png}
+  \caption{Protegiendo un patron de url}
+  \label{fig:role_admin_route}
+\end{figure}
+
+\clearpage
+Tambien podemos utilizar decoradores, por ejemplo para nuestro \textbf{\textit{ArticleController}}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.9\textwidth]{../assets/role_granted.png}
+  \caption{Proteger controladores con decoradores}
+  \label{fig:role_granted}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.9\textwidth]{../assets/register_page_uca.png}
+  \caption{Pagina en ruta \textit{/register}}
+  \label{fig:register_page_uca}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.9\textwidth]{../assets/logout.png}
+  \caption{Pagina en ruta \textit{/register} una vez inicia la sesión}
+  \label{fig:logout}
+\end{figure}

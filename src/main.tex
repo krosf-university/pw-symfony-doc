@@ -5,7 +5,14 @@
 \usepackage[spanish]{babel}%%
 \usepackage{graphicx}%% tablas e imagenes
 \usepackage{hyperref}%% urls
-
+\usepackage{caption}
+\usepackage{biblatex}
+\addbibresource{ref.bib}
+\hypersetup{
+pdftitle={Manual Symfony},
+pdfauthor={krosf},
+pdfkeywords={PW,Symfony,PHP}
+}
 \begin{document}
 
 %
@@ -52,26 +59,11 @@
 \clearpage
 
 %
-% Routes
-%
-\input{routes}
-\clearpage
-
-%
-% Controller
-%
-\input{controller}
-\clearpage
-
-%
-% Controller
-%
-\input{views}
-\clearpage
-
-%
 % Tutorial
 %
 \input{tutorial}
+\clearpage
+\nocite{*}
+\printbibliography
 
 \end{document}
